@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 function App() {
   const [problemsList, setProblemsList] = useState([]);
   const [selectedId, setSelectedId] = useState(1);
@@ -14,14 +16,14 @@ function App() {
 
   // Fetch problem list on load
   useEffect(() => {
-    axios.get('http://localhost:5000/api/problems')
+    axios.get(`${API_BASE_URL}/api/problems`)
       .then(res => setProblemsList(res.data))
       .catch(err => console.error("Error fetching problems list:", err));
   }, []);
 
   // Fetch specific problem details when selectedId changes
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/problem/${selectedId}`)
+    axios.get(`${API_BASE_URL}/api/problem/${selectedId}`)
       .then(res => {
         setProblem(res.data);
         setVerdict('');
@@ -45,7 +47,7 @@ function App() {
     setLoading(true);
     setVerdict('');
     try {
-      const res = await axios.post('http://localhost:5000/api/submit', {
+      const res = await axios.post(`${API_BASE_URL}/api/submit`, {
         problemId: selectedId,
         code,
         language
