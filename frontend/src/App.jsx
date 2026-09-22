@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
+import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -63,10 +64,10 @@ function App() {
   if (!problem) return <div style={{ padding: '40px', color: '#61dafb', background: '#0f172a', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem' }}>Loading Online Judge Platform...</div>;
 
   return (
-    <div style={{ display: 'flex', height: '100vh', backgroundColor: '#0f172a', color: '#f8fafc', fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
+    <div className="layout-container">
       
       {/* Sidebar: Problem List */}
-      <div style={{ width: '22%', padding: '20px', borderRight: '1px solid #1e293b', backgroundColor: '#1e293b33' }}>
+      <div className="sidebar">
         <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#38bdf8' }}>Problems List</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {problemsList.map(p => (
@@ -92,7 +93,7 @@ function App() {
       </div>
 
       {/* Middle Pane: Problem Description */}
-      <div style={{ width: '35%', padding: '30px', borderRight: '1px solid #1e293b', overflowY: 'auto', backgroundColor: '#1e293b22' }}>
+      <div className="middle-pane">
         <div style={{ display: 'inline-block', padding: '4px 12px', background: '#3b82f622', color: '#3b82f6', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600', marginBottom: '15px' }}>
           Problem #{problem.id}
         </div>
@@ -111,8 +112,8 @@ function App() {
       </div>
 
       {/* Right Pane: Code Editor & Submission */}
-      <div style={{ width: '43%', display: 'flex', flexDirection: 'column', padding: '25px', backgroundColor: '#0f172a' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px', alignItems: 'center', background: '#1e293b', padding: '10px 15px', borderRadius: '8px', border: '1px solid #334155' }}>
+      <div className="right-pane">
+        <div className="controls">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ fontSize: '0.9rem', color: '#94a3b8', fontWeight: '500' }}>Language:</span>
             <select value={language} onChange={handleLanguageChange} style={{ padding: '8px 12px', background: '#0f172a', color: '#fff', border: '1px solid #475569', borderRadius: '6px', outline: 'none', cursor: 'pointer', fontWeight: '600' }}>
