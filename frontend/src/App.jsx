@@ -13,6 +13,7 @@ function App() {
   const [language, setLanguage] = useState('python');
   const [verdict, setVerdict] = useState('');
   const [execTime, setExecTime] = useState(null);
+  const [errorDetails, setErrorDetails] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // Fetch problem list on load
@@ -28,6 +29,7 @@ function App() {
       .then(res => {
         setProblem(res.data);
         setVerdict('');
+        setErrorDetails(null);
         if (language === 'python') {
           setCode('# Write your Python code here\n');
         } else if (language === 'cpp') {
@@ -47,6 +49,7 @@ function App() {
   const handleSubmit = async () => {
     setLoading(true);
     setVerdict('');
+    setErrorDetails(null);
     try {
       const res = await axios.post(`${API_BASE_URL}/api/submit`, {
         problemId: selectedId,
@@ -55,6 +58,7 @@ function App() {
       });
       setVerdict(res.data.verdict);
       setExecTime(res.data.executionTime);
+      setErrorDetails(res.data.details);
     } catch (err) {
       setVerdict('Error executing code');
     }
@@ -141,13 +145,20 @@ function App() {
 
         {/* Verdict Box */}
         {verdict && (
-          <div style={{ marginTop: '15px', padding: '16px', background: verdict === 'Accepted' ? 'rgba(21, 128, 61, 0.2)' : 'rgba(185, 28, 28, 0.2)', border: `1px solid ${verdict === 'Accepted' ? '#22c55e' : '#ef4444'}`, borderRadius: '8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <strong style={{ color: verdict === 'Accepted' ? '#4ade80' : '#f87171', fontSize: '1.05rem' }}>
-                {verdict === 'Accepted' ? '🎉 Verdict: Accepted' : `❌ Verdict: ${verdict}`}
-              </strong>
+          <div style={{ marginTop: '15px', padding: '16px', background: verdict === 'Accepted' ? 'rgba(21, 128, 61, 0.2)' : 'rgba(185, 28, 28, 0.2)', border: `1px solid ${verdict === 'Accepted' ? '#22c55e' : '#ef4444'}`, borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <strong style={{ color: verdict === 'Accepted' ? '#4ade80' : '#f87171', fontSize: '1.05rem' }}>
+                  {verdict === 'Accepted' ? '🎉 Verdict: Accepted' : `❌ Verdict: ${verdict}`}
+                </strong>
+              </div>
+              {execTime !== null && <div style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Time: <span style={{ color: '#fff', fontWeight: '600' }}>{execTime} ms</span></div>}
             </div>
-            {execTime !== null && <div style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Time: <span style={{ color: '#fff', fontWeight: '600' }}>{execTime} ms</span></div>}
+            {errorDetails && (
+              <pre style={{ margin: 0, padding: '10px', background: 'rgba(0,0,0,0.3)', borderRadius: '6px', color: '#fca5a5', fontSize: '0.85rem', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
+                {errorDetails}
+              </pre>
+            )}
           </div>
         )}
       </div>

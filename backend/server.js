@@ -53,7 +53,7 @@ const problems = [
     }
 ];
 
-const executeWithTimeout = (command, inputData, timeoutMs = 3000) => {
+const executeWithTimeout = (command, inputData, timeoutMs = 10000) => {
     return new Promise((resolve) => {
         const startTime = Date.now();
         const child = exec(command, { timeout: timeoutMs }, (error, stdout, stderr) => {
@@ -129,6 +129,7 @@ app.post('/api/submit', async (req, res) => {
 
         let finalVerdict = 'Accepted';
         let maxTime = 0;
+        let errorDetails = null;
 
         for (const tc of problem.testCases) {
             const result = await executeWithTimeout(command, tc.input);
@@ -136,6 +137,7 @@ app.post('/api/submit', async (req, res) => {
 
             if (result.verdict !== 'Accepted') {
                 finalVerdict = result.verdict;
+                if (result.details) errorDetails = result.details;
                 break;
             }
 
@@ -144,11 +146,12 @@ app.post('/api/submit', async (req, res) => {
 
             if (cleanOutput !== cleanExpected) {
                 finalVerdict = 'Wrong Answer';
+                errorDetails = `Input:\n${tc.input}\n\nExpected Output:\n${cleanExpected}\n\nYour Output:\n${cleanOutput}`;
                 break;
             }
         }
 
-        res.json({ verdict: finalVerdict, executionTime: maxTime });
+        res.json({ verdict: finalVerdict, executionTime: maxTime, details: errorDetails });
 
     } catch (err) {
         res.status(500).json({ verdict: 'Internal Server Error', executionTime: 0 });
