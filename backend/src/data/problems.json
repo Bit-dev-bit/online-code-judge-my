@@ -8,7 +8,10 @@
     "inputFormat": "A single line containing two space-separated integers, `a` and `b`.",
     "outputFormat": "Print a single integer representing the sum of `a` and `b`.",
     "constraints": "- `-1000 <= a, b <= 1000`",
-    "tags": ["Math", "Basic"],
+    "tags": [
+      "Math",
+      "Basic"
+    ],
     "timeLimit": 2000,
     "memoryLimit": 256,
     "examples": [
@@ -19,11 +22,26 @@
       }
     ],
     "testCases": [
-      { "input": "2 3", "expectedOutput": "5" },
-      { "input": "10 20", "expectedOutput": "30" },
-      { "input": "-5 5", "expectedOutput": "0" },
-      { "input": "1000 1000", "expectedOutput": "2000" },
-      { "input": "-1000 -1000", "expectedOutput": "-2000" }
+      {
+        "input": "2 3",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "10 20",
+        "expectedOutput": "30"
+      },
+      {
+        "input": "-5 5",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "1000 1000",
+        "expectedOutput": "2000"
+      },
+      {
+        "input": "-1000 -1000",
+        "expectedOutput": "-2000"
+      }
     ],
     "starterCode": {
       "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
@@ -40,7 +58,10 @@
     "inputFormat": "A single line containing an integer `n`.",
     "outputFormat": "Print `Even` or `Odd`.",
     "constraints": "- `-10^6 <= n <= 10^6`",
-    "tags": ["Math", "Conditionals"],
+    "tags": [
+      "Math",
+      "Conditionals"
+    ],
     "timeLimit": 2000,
     "memoryLimit": 256,
     "examples": [
@@ -51,11 +72,26 @@
       }
     ],
     "testCases": [
-      { "input": "4", "expectedOutput": "Even" },
-      { "input": "7", "expectedOutput": "Odd" },
-      { "input": "0", "expectedOutput": "Even" },
-      { "input": "-2", "expectedOutput": "Even" },
-      { "input": "-9", "expectedOutput": "Odd" }
+      {
+        "input": "4",
+        "expectedOutput": "Even"
+      },
+      {
+        "input": "7",
+        "expectedOutput": "Odd"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "Even"
+      },
+      {
+        "input": "-2",
+        "expectedOutput": "Even"
+      },
+      {
+        "input": "-9",
+        "expectedOutput": "Odd"
+      }
     ],
     "starterCode": {
       "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
@@ -72,7 +108,10 @@
     "inputFormat": "A single line containing three space-separated integers.",
     "outputFormat": "Print a single integer representing the maximum value.",
     "constraints": "- `-10^5 <= a, b, c <= 10^5`",
-    "tags": ["Conditionals", "Basic"],
+    "tags": [
+      "Conditionals",
+      "Basic"
+    ],
     "timeLimit": 2000,
     "memoryLimit": 256,
     "examples": [
@@ -83,10 +122,966 @@
       }
     ],
     "testCases": [
-      { "input": "10 25 15", "expectedOutput": "25" },
-      { "input": "100 45 78", "expectedOutput": "100" },
-      { "input": "-2 -5 -1", "expectedOutput": "-1" },
-      { "input": "5 5 5", "expectedOutput": "5" }
+      {
+        "input": "10 25 15",
+        "expectedOutput": "25"
+      },
+      {
+        "input": "100 45 78",
+        "expectedOutput": "100"
+      },
+      {
+        "input": "-2 -5 -1",
+        "expectedOutput": "-1"
+      },
+      {
+        "input": "5 5 5",
+        "expectedOutput": "5"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "4",
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "description": "Given an array of integers `nums` and an integer `target`, print the indices of the two numbers such that they add up to `target`.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "5",
+    "slug": "reverse-string",
+    "title": "Reverse String",
+    "difficulty": "Easy",
+    "description": "Write a program that takes a string as input and prints the reverse of that string.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Strings"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "6",
+    "slug": "palindrome-number",
+    "title": "Palindrome Number",
+    "difficulty": "Easy",
+    "description": "Given an integer `x`, print 'true' if `x` is a palindrome, and 'false' otherwise.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Math"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "7",
+    "slug": "valid-parentheses",
+    "title": "Valid Parentheses",
+    "difficulty": "Medium",
+    "description": "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Stack"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "8",
+    "slug": "merge-sorted-array",
+    "title": "Merge Sorted Array",
+    "difficulty": "Easy",
+    "description": "Merge two sorted arrays into one single sorted array.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Sorting"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "9",
+    "slug": "fibonacci-number",
+    "title": "Fibonacci Number",
+    "difficulty": "Easy",
+    "description": "The Fibonacci numbers are defined by F(n) = F(n-1) + F(n-2). Given `n`, calculate F(n).",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Math",
+      "DP"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "10",
+    "slug": "climbing-stairs",
+    "title": "Climbing Stairs",
+    "difficulty": "Medium",
+    "description": "You are climbing a staircase. It takes `n` steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "DP"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "11",
+    "slug": "maximum-subarray",
+    "title": "Maximum Subarray",
+    "difficulty": "Medium",
+    "description": "Given an integer array `nums`, find the subarray with the largest sum, and return its sum.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "DP"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "12",
+    "slug": "contains-duplicate",
+    "title": "Contains Duplicate",
+    "difficulty": "Easy",
+    "description": "Given an integer array `nums`, print 'true' if any value appears at least twice in the array, and 'false' if every element is distinct.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "13",
+    "slug": "single-number",
+    "title": "Single Number",
+    "difficulty": "Easy",
+    "description": "Given a non-empty array of integers `nums`, every element appears twice except for one. Find that single one.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Bit Manipulation"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "14",
+    "slug": "missing-number",
+    "title": "Missing Number",
+    "difficulty": "Easy",
+    "description": "Given an array containing `n` distinct numbers in the range `[0, n]`, return the only number in the range that is missing from the array.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Math"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "15",
+    "slug": "factorial",
+    "title": "Factorial",
+    "difficulty": "Easy",
+    "description": "Given a non-negative integer `n`, compute and print `n!` (n factorial).",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Math",
+      "Recursion"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "16",
+    "slug": "power-of-two",
+    "title": "Power of Two",
+    "difficulty": "Easy",
+    "description": "Given an integer `n`, return 'true' if it is a power of two. Otherwise, return 'false'.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Math",
+      "Bit Manipulation"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "17",
+    "slug": "count-primes",
+    "title": "Count Primes",
+    "difficulty": "Medium",
+    "description": "Given an integer `n`, return the number of prime numbers that are strictly less than `n`.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Math"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "18",
+    "slug": "valid-anagram",
+    "title": "Valid Anagram",
+    "difficulty": "Easy",
+    "description": "Given two strings `s` and `t`, return 'true' if `t` is an anagram of `s`, and 'false' otherwise.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Strings",
+      "Hash Table"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "19",
+    "slug": "find-the-duplicate-number",
+    "title": "Find the Duplicate Number",
+    "difficulty": "Medium",
+    "description": "Given an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive, find the one repeated number.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Two Pointers"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "20",
+    "slug": "search-insert-position",
+    "title": "Search Insert Position",
+    "difficulty": "Easy",
+    "description": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Binary Search"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "21",
+    "slug": "length-of-last-word",
+    "title": "Length of Last Word",
+    "difficulty": "Easy",
+    "description": "Given a string `s` consisting of words and spaces, return the length of the last word in the string.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Strings"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "22",
+    "slug": "majority-element",
+    "title": "Majority Element",
+    "difficulty": "Easy",
+    "description": "Given an array `nums` of size `n`, return the majority element. The majority element is the element that appears more than `\u230an / 2\u230b` times.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Sorting"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "23",
+    "slug": "remove-duplicates",
+    "title": "Remove Duplicates",
+    "difficulty": "Easy",
+    "description": "Given an integer array `nums` sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Two Pointers"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "24",
+    "slug": "move-zeroes",
+    "title": "Move Zeroes",
+    "difficulty": "Easy",
+    "description": "Given an integer array `nums`, move all 0's to the end of it while maintaining the relative order of the non-zero elements.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Two Pointers"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "25",
+    "slug": "reverse-words-in-a-string",
+    "title": "Reverse Words in a String",
+    "difficulty": "Medium",
+    "description": "Given an input string `s`, reverse the order of the words.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Strings"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "26",
+    "slug": "intersection-of-two-arrays",
+    "title": "Intersection of Two Arrays",
+    "difficulty": "Easy",
+    "description": "Given two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must be unique.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Hash Table"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "27",
+    "slug": "find-peak-element",
+    "title": "Find Peak Element",
+    "difficulty": "Medium",
+    "description": "A peak element is an element that is strictly greater than its neighbors. Given an integer array `nums`, find a peak element, and return its index.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Binary Search"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
+    ],
+    "starterCode": {
+      "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
+      "cpp": "#include <iostream>\nusing namespace std;\n\nint main() {\n    // Write your code here\n    return 0;\n}",
+      "java": "import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        // Write your code here\n    }\n}"
+    }
+  },
+  {
+    "id": "28",
+    "slug": "trapping-rain-water",
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "description": "Given `n` non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+    "inputFormat": "Follow standard input format for the problem.",
+    "outputFormat": "Print the expected result to standard output.",
+    "constraints": "- Standard constraints apply.",
+    "tags": [
+      "Arrays",
+      "Two Pointers",
+      "Stack"
+    ],
+    "timeLimit": 2000,
+    "memoryLimit": 256,
+    "examples": [
+      {
+        "input": "Sample Input",
+        "output": "Sample Output",
+        "explanation": "Self explanatory."
+      }
+    ],
+    "testCases": [
+      {
+        "input": "test_input_1",
+        "expectedOutput": "expected_output_1"
+      },
+      {
+        "input": "test_input_2",
+        "expectedOutput": "expected_output_2"
+      }
     ],
     "starterCode": {
       "python": "def solve():\n    # Write your code here\n    pass\n\nif __name__ == '__main__':\n    solve()",
