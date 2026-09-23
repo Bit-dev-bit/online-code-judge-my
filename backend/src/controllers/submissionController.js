@@ -22,8 +22,8 @@ const submitCode = async (req, res) => {
     
     // If it's a "Run" action (custom input or sample cases)
     if (isCustomInput) {
-      const testCases = customInput 
-        ? [{ input: customInput, expectedOutput: '' }] 
+      const testCases = customInput !== undefined && customInput !== ''
+        ? [{ input: customInput, expectedOutput: undefined }] 
         : problem.examples.map(ex => ({ input: ex.input, expectedOutput: ex.output }));
         
       result = await ExecutionService.executeCode(code, language, testCases, problem.timeLimit);

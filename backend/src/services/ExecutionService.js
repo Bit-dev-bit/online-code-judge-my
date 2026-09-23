@@ -69,11 +69,11 @@ class ExecutionService {
         memoryUsed = Math.max(memoryUsed, Math.floor(Math.random() * 10) + 10); // Mock memory 10-20MB
 
         const cleanOutput = result.output ? result.output.replace(/\r\n/g, '\n').trim() : '';
-        const cleanExpected = tc.expectedOutput.replace(/\r\n/g, '\n').trim();
+        const cleanExpected = tc.expectedOutput ? tc.expectedOutput.replace(/\r\n/g, '\n').trim() : undefined;
 
         let tcVerdict = result.verdict;
         
-        if (tcVerdict === 'Accepted' && cleanOutput !== cleanExpected) {
+        if (tcVerdict === 'Accepted' && cleanExpected !== undefined && cleanOutput !== cleanExpected) {
             tcVerdict = 'Wrong Answer';
         }
 

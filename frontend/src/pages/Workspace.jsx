@@ -241,19 +241,42 @@ const Workspace = () => {
                   )}
                   
                   {verdict.testCaseResults && verdict.testCaseResults.length > 0 && (
-                    <div className="mb-4 flex flex-wrap gap-2">
-                      {verdict.testCaseResults.map((tc, i) => (
-                        <div key={i} className={`px-2 py-1 text-xs rounded border ${tc.verdict === 'Accepted' ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400'}`}>
-                          Case {i+1}
+                    <div className="mb-4 flex flex-col gap-4">
+                      <div className="flex flex-wrap gap-2">
+                        {verdict.testCaseResults.map((tc, i) => (
+                          <div key={i} className={`px-2 py-1 text-xs rounded border ${tc.verdict === 'Accepted' ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400'}`}>
+                            Case {i+1}
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Show Output of the first test case (especially useful for custom input) */}
+                      {activeTab === 'result' && (
+                        <div className="bg-background p-4 rounded border border-border">
+                          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Standard Output</h4>
+                          <pre className="text-slate-300 text-sm overflow-x-auto whitespace-pre-wrap font-mono">
+                            {verdict.testCaseResults[0]?.output || <span className="text-slate-500 italic">No output</span>}
+                          </pre>
+                          {verdict.testCaseResults[0]?.expected !== undefined && (
+                            <>
+                              <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-4 mb-2">Expected Output</h4>
+                              <pre className="text-slate-300 text-sm overflow-x-auto whitespace-pre-wrap font-mono">
+                                {verdict.testCaseResults[0]?.expected}
+                              </pre>
+                            </>
+                          )}
                         </div>
-                      ))}
+                      )}
                     </div>
                   )}
 
                   {verdict.details && (
-                    <pre className="bg-background p-4 rounded border border-border text-red-300 text-sm overflow-x-auto whitespace-pre-wrap flex-1 font-mono">
-                      {verdict.details}
-                    </pre>
+                    <div className="bg-background p-4 rounded border border-border">
+                      <h4 className="text-xs font-semibold text-red-400 uppercase tracking-wider mb-2">Error Details</h4>
+                      <pre className="text-red-300 text-sm overflow-x-auto whitespace-pre-wrap flex-1 font-mono">
+                        {verdict.details}
+                      </pre>
+                    </div>
                   )}
                 </div>
               )
