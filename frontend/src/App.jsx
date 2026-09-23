@@ -1,168 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import Editor from '@monaco-editor/react';
-import axios from 'axios';
-import './App.css';
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+import React from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Terminal, LayoutDashboard, Code2, List, User } from 'lucide-react';
+import Workspace from './pages/Workspace';
+import Dashboard from './pages/Dashboard';
+import ProblemList from './pages/ProblemList';
+import Submissions from './pages/Submissions';
 
 function App() {
-  const [problemsList, setProblemsList] = useState([]);
-  const [selectedId, setSelectedId] = useState(1);
-  const [problem, setProblem] = useState(null);
-  const [code, setCode] = useState('');
-  const [language, setLanguage] = useState('python');
-  const [verdict, setVerdict] = useState('');
-  const [execTime, setExecTime] = useState(null);
-  const [errorDetails, setErrorDetails] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  // Fetch problem list on load
-  useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/problems`)
-      .then(res => setProblemsList(res.data))
-      .catch(err => console.error("Error fetching problems list:", err));
-  }, []);
-
-  // Fetch specific problem details when selectedId changes
-  useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/problem/${selectedId}`)
-      .then(res => {
-        setProblem(res.data);
-        setVerdict('');
-        setErrorDetails(null);
-        if (language === 'python') {
-          setCode('# Write your Python code here\n');
-        } else if (language === 'cpp') {
-          setCode('// Write your C++ code here\n#include <iostream>\nusing namespace std;\nint main() {\n    return 0;\n}');
-        } else {
-          setCode('// Write your Java code here\nimport java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n    }\n}');
-        }
-      })
-      .catch(err => console.error("Error fetching problem details:", err));
-  }, [selectedId, language]);
-
-  const handleLanguageChange = (e) => {
-    const lang = e.target.value;
-    setLanguage(lang);
-  };
-
-  const handleSubmit = async () => {
-    setLoading(true);
-    setVerdict('');
-    setErrorDetails(null);
-    try {
-      const res = await axios.post(`${API_BASE_URL}/api/submit`, {
-        problemId: selectedId,
-        code,
-        language
-      });
-      setVerdict(res.data.verdict);
-      setExecTime(res.data.executionTime);
-      setErrorDetails(res.data.details);
-    } catch (err) {
-      setVerdict('Error executing code');
-    }
-    setLoading(false);
-  };
-
-  if (!problem) return <div style={{ padding: '40px', color: '#61dafb', background: '#0f172a', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '1.2rem' }}>Loading Online Judge Platform...</div>;
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path || (path !== '/' && location.pathname.startsWith(path));
 
   return (
-    <div className="layout-container">
-      
-      {/* Sidebar: Problem List */}
-      <div className="sidebar">
-        <h2 style={{ fontSize: '1.2rem', marginBottom: '20px', color: '#38bdf8' }}>Problems List</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {problemsList.map(p => (
-            <button
-              key={p.id}
-              onClick={() => setSelectedId(p.id)}
-              style={{
-                padding: '12px 15px',
-                textAlign: 'left',
-                background: selectedId === p.id ? '#2563eb' : '#1e293b',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                fontWeight: '600',
-                transition: '0.2s'
-              }}
-            >
-              {p.id}. {p.title}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Middle Pane: Problem Description */}
-      <div className="middle-pane">
-        <div style={{ display: 'inline-block', padding: '4px 12px', background: '#3b82f622', color: '#3b82f6', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600', marginBottom: '15px' }}>
-          Problem #{problem.id}
-        </div>
-        <h1 style={{ fontSize: '1.6rem', marginBottom: '15px', color: '#fff' }}>{problem.title}</h1>
-        <p style={{ lineHeight: '1.7', color: '#cbd5e1', fontSize: '0.95rem' }}>{problem.description}</p>
-        
-        <div style={{ marginTop: '25px' }}>
-          <h3 style={{ fontSize: '0.9rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px' }}>Sample Input</h3>
-          <pre style={{ background: '#0f172a', padding: '12px 16px', borderRadius: '8px', border: '1px solid #334155', color: '#38bdf8', marginTop: '8px' }}>{problem.sampleInput}</pre>
-        </div>
-        
-        <div style={{ marginTop: '20px' }}>
-          <h3 style={{ fontSize: '0.9rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px' }}>Sample Output</h3>
-          <pre style={{ background: '#0f172a', padding: '12px 16px', borderRadius: '8px', border: '1px solid #334155', color: '#34d399', marginTop: '8px' }}>{problem.sampleOutput}</pre>
-        </div>
-      </div>
-
-      {/* Right Pane: Code Editor & Submission */}
-      <div className="right-pane">
-        <div className="controls">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <span style={{ fontSize: '0.9rem', color: '#94a3b8', fontWeight: '500' }}>Language:</span>
-            <select value={language} onChange={handleLanguageChange} style={{ padding: '8px 12px', background: '#0f172a', color: '#fff', border: '1px solid #475569', borderRadius: '6px', outline: 'none', cursor: 'pointer', fontWeight: '600' }}>
-              <option value="python">Python 3</option>
-              <option value="cpp">C++ (GCC)</option>
-              <option value="java">Java (OpenJDK)</option>
-            </select>
+    <div className="flex flex-col h-screen bg-background text-slate-300">
+      {/* Top Navigation */}
+      <nav className="h-14 border-b border-border bg-surface flex items-center justify-between px-6 flex-shrink-0">
+        <div className="flex items-center gap-6">
+          <Link to="/" className="flex items-center gap-2 font-bold text-lg text-white">
+            <Terminal className="w-5 h-5 text-primary" />
+            <span>Judge<span className="text-primary">Pro</span></span>
+          </Link>
+          <div className="hidden md:flex items-center gap-1 text-sm font-medium">
+            <Link to="/" className={`px-3 py-1.5 rounded flex items-center gap-2 transition-colors ${isActive('/') ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}><LayoutDashboard className="w-4 h-4"/> Dashboard</Link>
+            <Link to="/problems" className={`px-3 py-1.5 rounded flex items-center gap-2 transition-colors ${isActive('/problems') ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}><Code2 className="w-4 h-4"/> Problems</Link>
+            <Link to="/submissions" className={`px-3 py-1.5 rounded flex items-center gap-2 transition-colors ${isActive('/submissions') ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}><List className="w-4 h-4"/> Submissions</Link>
           </div>
-
-          <button onClick={handleSubmit} disabled={loading} style={{ padding: '10px 20px', background: loading ? '#475569' : 'linear-gradient(135deg, #2563eb, #1d4ed8)', color: '#fff', border: 'none', borderRadius: '6px', cursor: loading ? 'not-allowed' : 'pointer', fontWeight: 'bold', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)' }}>
-            {loading ? 'Evaluating...' : '🚀 Run & Submit'}
+        </div>
+        <div className="flex items-center gap-4">
+          <button className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:ring-2 ring-primary/50 transition-all">
+            <User className="w-4 h-4" />
           </button>
         </div>
+      </nav>
 
-        <div style={{ flex: 1, border: '1px solid #334155', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)' }}>
-          <Editor
-            height="100%"
-            language={language === 'python' ? 'python' : language === 'cpp' ? 'cpp' : 'java'}
-            theme="vs-dark"
-            value={code}
-            onChange={(value) => setCode(value)}
-            options={{ fontSize: 14, minimap: { enabled: false }, scrollBeyondLastLine: false }}
-          />
-        </div>
-
-        {/* Verdict Box */}
-        {verdict && (
-          <div style={{ marginTop: '15px', padding: '16px', background: verdict === 'Accepted' ? 'rgba(21, 128, 61, 0.2)' : 'rgba(185, 28, 28, 0.2)', border: `1px solid ${verdict === 'Accepted' ? '#22c55e' : '#ef4444'}`, borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <strong style={{ color: verdict === 'Accepted' ? '#4ade80' : '#f87171', fontSize: '1.05rem' }}>
-                  {verdict === 'Accepted' ? '🎉 Verdict: Accepted' : `❌ Verdict: ${verdict}`}
-                </strong>
-              </div>
-              {execTime !== null && <div style={{ color: '#94a3b8', fontSize: '0.85rem' }}>Time: <span style={{ color: '#fff', fontWeight: '600' }}>{execTime} ms</span></div>}
-            </div>
-            {errorDetails && (
-              <pre style={{ margin: 0, padding: '10px', background: 'rgba(0,0,0,0.3)', borderRadius: '6px', color: '#fca5a5', fontSize: '0.85rem', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>
-                {errorDetails}
-              </pre>
-            )}
-          </div>
-        )}
-      </div>
-
+      {/* Main Content Area */}
+      <main className="flex-1 overflow-hidden flex flex-col">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/problems" element={<ProblemList />} />
+          <Route path="/problems/:id" element={<Workspace />} />
+          <Route path="/submissions" element={<Submissions />} />
+        </Routes>
+      </main>
     </div>
   );
 }
