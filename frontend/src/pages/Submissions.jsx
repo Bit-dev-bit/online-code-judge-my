@@ -24,10 +24,11 @@ const Submissions = () => {
   if (loading) return <div className="p-8 text-slate-400">Loading submissions...</div>;
 
   return (
-    <div className="p-8 max-w-5xl mx-auto w-full">
-      <h1 className="text-3xl font-bold mb-8 text-white">Global Submissions</h1>
-      
-      {submissions.length === 0 ? (
+    <div className="h-full overflow-y-auto">
+      <div className="p-8 max-w-5xl mx-auto w-full mb-12">
+        <h1 className="text-3xl font-bold mb-8 text-white">Global Submissions</h1>
+        
+        {submissions.length === 0 ? (
         <div className="text-center p-12 border border-dashed border-border rounded-lg text-slate-500">
           No submissions found. Submit some code to see history here!
         </div>
@@ -66,6 +67,7 @@ const Submissions = () => {
           </table>
         </div>
       )}
+    </div>
     </div>
   );
 };

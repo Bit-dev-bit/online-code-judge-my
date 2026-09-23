@@ -41,6 +41,11 @@ class ExecutionService {
         fs.writeFileSync(filename, code);
         command = `javac "${filename}" && java -cp "${tempDir}" Main`;
       }
+      else if (language === 'javascript') {
+        filename = path.join(tempDir, 'script.js');
+        fs.writeFileSync(filename, code);
+        command = `node "${filename}"`;
+      }
       else {
         return { verdict: 'Unsupported Language', executionTime: 0, details: null, testCaseResults: [] };
       }

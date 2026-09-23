@@ -17,20 +17,30 @@ const Workspace = () => {
   const [activeTab, setActiveTab] = useState('testcases');
   const [customInput, setCustomInput] = useState('');
 
+  const getDefaultCode = (lang) => {
+    if (problem?.starterCode?.[lang]) return problem.starterCode[lang];
+    if (lang === 'python') return "def solve():\n    pass\n\nif __name__ == '__main__':\n    solve()";
+    if (lang === 'javascript') return "function solve() {\n    // Write your code here\n}\n\nsolve();";
+    if (lang === 'cpp') return "#include <iostream>\nusing namespace std;\n\nint main() {\n    return 0;\n}";
+    if (lang === 'java') return "public class Main {\n    public static void main(String[] args) {\n    }\n}";
+    return "";
+  };
+
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/problems/${id}`)
       .then(res => {
         setProblem(res.data);
-        // On problem load, try to restore from localStorage
         const savedCode = localStorage.getItem(`code_${id}_${language}`);
         if (savedCode) {
           setCode(savedCode);
-        } else if (res.data.starterCode) {
-          setCode(res.data.starterCode[language] || '');
+        } else {
+          // Use temporary local function since state problem isn't available in this closure yet
+          const tempGetDefault = (lang, data) => data?.starterCode?.[lang] || getDefaultCode(lang);
+          setCode(tempGetDefault(language, res.data));
         }
       })
       .catch(err => console.error("Error fetching problem:", err));
-  }, [id, language]); // added language to dependency array so switching languages triggers load
+  }, [id, language]); 
 
   // Save to local storage on code change
   useEffect(() => {
@@ -41,7 +51,7 @@ const Workspace = () => {
 
   const handleResetCode = () => {
     if (confirm("Are you sure you want to reset your code to the starter template?")) {
-      const defaultCode = problem?.starterCode?.[language] || '';
+      const defaultCode = getDefaultCode(language);
       setCode(defaultCode);
       localStorage.setItem(`code_${id}_${language}`, defaultCode);
     }
@@ -121,6 +131,7 @@ const Workspace = () => {
               className="bg-background border border-border rounded px-2 py-1 text-sm outline-none focus:border-primary"
             >
               <option value="python">Python 3</option>
+              <option value="javascript">JavaScript (Node)</option>
               <option value="cpp">C++ (GCC)</option>
               <option value="java">Java</option>
             </select>
@@ -132,7 +143,7 @@ const Workspace = () => {
           <div className="flex-1 relative">
             <Editor
               height="100%"
-              language={language === 'python' ? 'python' : language === 'cpp' ? 'cpp' : 'java'}
+              language={language === 'python' ? 'python' : language === 'cpp' ? 'cpp' : language === 'javascript' ? 'javascript' : 'java'}
               theme="vs-dark"
               value={code}
               onChange={(val) => setCode(val)}

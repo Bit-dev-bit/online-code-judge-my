@@ -20,10 +20,11 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="p-8 max-w-5xl mx-auto w-full">
-      <h1 className="text-3xl font-bold mb-8 text-white">Dashboard</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div className="h-full overflow-y-auto">
+      <div className="p-8 max-w-5xl mx-auto w-full mb-12">
+        <h1 className="text-3xl font-bold mb-8 text-white">Dashboard</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-surface border border-border p-6 rounded-lg">
           <div className="flex items-center gap-3 text-slate-400 mb-2">
             <Target className="w-5 h-5" /> Total Submissions
@@ -55,6 +56,7 @@ const Dashboard = () => {
           View Problems
         </Link>
       </div>
+    </div>
     </div>
   );
 };
