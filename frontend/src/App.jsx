@@ -5,6 +5,7 @@ import Workspace from './pages/Workspace';
 import Dashboard from './pages/Dashboard';
 import ProblemList from './pages/ProblemList';
 import Submissions from './pages/Submissions';
+import CommandPalette from './components/CommandPalette';
 
 function App() {
   const location = useLocation();
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen bg-background text-slate-300">
+      <CommandPalette />
       {/* Top Navigation */}
       <nav className="h-14 border-b border-border bg-surface flex items-center justify-between px-6 flex-shrink-0">
         <div className="flex items-center gap-6">
